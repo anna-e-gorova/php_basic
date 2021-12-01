@@ -10,7 +10,8 @@
       <script type="text/javascript" src="js/script.js"></script>
   </head>
   <body>  
-  <?php include "scan.php";
+  <?php include "config.php";
+        include "scan.php";
         include "form.html";
   ?>
   </body>
