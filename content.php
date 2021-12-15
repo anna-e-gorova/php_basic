@@ -26,26 +26,20 @@
         case 'rating':
             include "templates/rating.php";
             break;
-        case 'add_good':
-             include "pages/admin/add_good.php";
-             break;
-        case 'edit_good':
-            include "pages/admin/edit_good.php";
-            break;
-        case 'prices':
-            include "pages/prices.php";
+        case 'cart':
+            include "templates/cart.php";
             break;
         case 'reg':
             include "templates/reg.php";
             break;
-        case 'details_order':
-           include "pages/admin/detail_order.php";
-           break;
-        case 'cart':
-            include "templates/cart.php";
+        case 'add_good':
+             include "admin/add_good.php";
+             break;
+        case 'edit_good':
+            include "admin/edit_good.php";
             break;
         case 'edit_orders':
-           include "pages/admin/orders.php";
+           include "admin/edit_orders.php";
            break;
         case 'exit':
            unset($_SESSION['id_user']);

@@ -17,7 +17,9 @@
         $orders = getOrders($con, $_SESSION['id_user']);
         foreach ($orders as $order): ?>
         <div id="cartProduct" >
-            <p>Номер заказа: <?= $order['id'] ?></p>
+            <p>Номер заказа: <?= $order['order_id'] ?></p>
             <p>Дата: <?= $order['date'] ?></p>
+            <p>Кол-во товаров: <?= $order['totalcount'] ?></p>
+            <p>Сумма: <?= $order['totalprice'] ?></p>
         </div>
         <?php endforeach; ?>

@@ -24,7 +24,13 @@ function getCart($con, $id) {
 }
 
 function getOrders($con, $id) {
-    $sql = "SELECT DISTINCT orders.id, date FROM `orders` inner join `goodsorder` on `orders`.`id`=`goodsorder`.`order_id` inner join `users` on `orders`.`user_id`=`users`.`id` inner join `goods` on `goodsorder`.`good_id`=`goods`.`id` WHERE `users`.`id`='$id';";
+    $sql = "SELECT order_id, date, SUM(price*count) as totalprice, SUM(count) as totalcount FROM `orders` INNER JOIN `goodsorder` ON `orders`.`id` = `goodsorder`.`order_id` INNER JOIN `users` ON `orders`.`user_id` = `users`.`id` INNER JOIN `goods` ON `goodsorder`.`good_id` = `goods`.`id` WHERE users.id = '$id' GROUP BY order_id;";
+	$result = mysqli_query($con, $sql);
+	return mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+
+function getAllOrders($con) {
+    $sql = "SELECT `order_id`, `login`, date, SUM(price*count) as totalprice, SUM(count) as totalcount FROM `orders` INNER JOIN `goodsorder` ON `orders`.`id` = `goodsorder`.`order_id` INNER JOIN `users` ON `orders`.`user_id` = `users`.`id` INNER JOIN `goods` ON `goodsorder`.`good_id` = `goods`.`id` GROUP BY order_id;";
 	$result = mysqli_query($con, $sql);
 	return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }

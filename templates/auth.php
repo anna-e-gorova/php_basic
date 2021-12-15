@@ -1,13 +1,5 @@
 <?php
 
-if(isset($_SESSION['id_user'])){
-    echo "<h1>Пользователь авторизован</h1><br>"; 
-    echo "<a href='index.php'>Перейти на главную</a>";
-}
-else{
-if(isset($_GET['success_auth'])){
-    echo "<h1>Вы успешно авторизованы!</h1>";
-}
 if(isset($_GET['errors_reg'])){
     echo $_GET['errors_reg'];
 } 
@@ -30,4 +22,4 @@ if(isset($_GET['unexist'])){
 <br>
 <a href='index.php?page=reg'>Регистрация</a>
 <?php
-}
+

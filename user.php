@@ -31,7 +31,7 @@ elseif(isset($_POST['auth'])){
              if($data['usergroup'] == 'admin'){
                  $_SESSION['admin'] = true;
              }
-             header("Location: /?page=auth&success_auth=true");
+             header("Location: /?page=shop");
         }
         else{
             header("Location: /?page=auth&unexist=true");
